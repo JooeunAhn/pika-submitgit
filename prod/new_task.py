@@ -8,7 +8,10 @@ channel = connection.channel()
 channel.queue_declare(queue='task_queue', durable=True)
 
 #message = ' '.join(sys.argv[1:]) or "Hello World!"
-data={"code": "print 'Hello1!'", "language": 0, "stdin": "", "time": 2}
+data={"id": 3, "code": "print 'Hello12!'", "language": 0, "stdin": "", "time": 2, 
+      "is_test": 'True', 'output': "Hello12!\n"}
+
+
 message = json.dumps(data)
 
 channel.basic_publish(exchange='',
